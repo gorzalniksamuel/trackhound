@@ -39,6 +39,11 @@ export class FilesystemMonitor {
         "**/*.key",       // Ignore key files (permission issues)
         "**/*.pem",       // Ignore cert files
         "**/*.crt",       // Ignore cert files
+        "**/Library/**",  // Ignore macOS Library directory (system files)
+        "**/Applications/**", // Ignore Applications
+        "**/System/**",   // Ignore macOS System
+        "**/Developer/**", // Ignore Developer tools
+        "**/node_modules/**", // Already in list but ensure it's there
       ],
       persistent: true,
       ignoreInitial: true,
@@ -50,9 +55,9 @@ export class FilesystemMonitor {
     });
 
     // Handle errors silently
-    this.watcher.on("error", (error) => {
-      // Silently ignore permission errors
-      if ((error as any).code === "EACCES") return;
+    this.watcher.on("error", (error: any) => {
+      // Silently ignore permission errors (EACCES, EPERM)
+      if (error.code === "EACCES" || error.code === "EPERM") return;
       console.error("File watcher error:", error);
     });
 
