@@ -1,0 +1,9 @@
+{
+    "name": "tracehound",
+    "description": "Sniff out what your AI agent is doing - know exactly what your AI agent did",
+    "homepage": "https://github.com/gorzalniksamuel/tracehound",
+    "private": false,
+    "has_issues": true,
+    "has_wiki": false,
+    "has_downloads": true
+}
