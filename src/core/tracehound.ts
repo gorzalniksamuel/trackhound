@@ -13,7 +13,7 @@ import { FilesystemMonitor } from "../recorders/filesystem-monitor.js";
 import { SecretDetector } from "../recorders/secret-detector.js";
 import { PolicyEngine } from "../policies/policy-engine.js";
 import { TraceWriter } from "./trace-writer.js";
-import { RunManifest, TraceHoundOptions, RunResult, AgentEvent } from "../types/index.js";
+import { RunManifest, TraceHoundOptions, RunResult, AgentEvent, FileEvent } from "../types/index.js";
 
 export interface TraceHoundConfig extends TraceHoundOptions {
   workspacePath: string;
@@ -99,7 +99,7 @@ export class TraceHound extends EventEmitter {
     await this.filesystemMonitor.start(
       process.cwd(),
       this.config.runId,
-      (event) => this.handleFilesystemEvent(event)
+      (event) => this.handleFilesystemEvent(event as FileEvent)
     );
     
     // Setup process wrapper event handlers
@@ -189,7 +189,7 @@ export class TraceHound extends EventEmitter {
     };
   }
 
-  private handleFilesystemEvent(event: AgentEvent): void {
+  private handleFilesystemEvent(event: FileEvent): void {
     // Track files modified
     if (event.type === "file.write" || event.type === "file.delete") {
       this.filesModified++;
@@ -229,7 +229,7 @@ export class TraceHound extends EventEmitter {
       const { exec } = await import("child_process");
       const patchPath = path.join(this.config.workspacePath, "git-before.patch");
       
-      exec("git diff", { cwd: process.cwd() }, async (error, stdout) => {
+      exec("git diff", { cwd: process.cwd() }, async (_err, stdout) => {
         await fs.writeFile(patchPath, stdout);
       });
     } catch {
@@ -242,7 +242,7 @@ export class TraceHound extends EventEmitter {
       const { exec } = await import("child_process");
       const patchPath = path.join(this.config.workspacePath, "git-after.patch");
       
-      exec("git diff", { cwd: process.cwd() }, async (error, stdout) => {
+      exec("git diff", { cwd: process.cwd() }, async (_err, stdout) => {
         await fs.writeFile(patchPath, stdout);
       });
     } catch {

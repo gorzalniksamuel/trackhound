@@ -55,7 +55,12 @@ export class GitSnapshotter {
       const branch = execSync("git branch --show-current", { encoding: "utf-8" }).trim();
       const commit = execSync("git rev-parse HEAD", { encoding: "utf-8" }).trim();
       const status = execSync("git status --porcelain", { encoding: "utf-8" }).trim();
-      const remote = execSync("git remote get-url origin", { encoding: "utf-8" }).trim().catch(() => undefined);
+      let remote: string | undefined;
+      try {
+        remote = execSync("git remote get-url origin", { encoding: "utf-8" }).trim();
+      } catch {
+        remote = undefined;
+      }
 
       return {
         isRepo: true,

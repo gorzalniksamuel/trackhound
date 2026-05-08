@@ -3,7 +3,7 @@
  * Watches file system events using chokidar
  */
 
-import chokidar from "chokidar";
+import * as chokidar from "chokidar";
 import * as fs from "fs/promises";
 import * as path from "path";
 import { FileEvent, AgentEvent } from "../types/index.js";
@@ -82,7 +82,9 @@ export class FilesystemMonitor {
         hash_before: beforeHash,
       };
 
-      this.fileHashes.set(filePath, hash);
+      if (hash) {
+        this.fileHashes.set(filePath, hash);
+      }
       this.eventHandler?.(event);
     });
 
@@ -103,8 +105,8 @@ export class FilesystemMonitor {
     });
 
     // Wait for watcher to be ready
-    await new Promise((resolve) => {
-      this.watcher?.on("ready", resolve);
+    await new Promise<void>((resolve) => {
+      this.watcher?.on("ready", () => resolve());
     });
   }
 
@@ -124,7 +126,9 @@ export class FilesystemMonitor {
         const fullPath = path.join(rootPath, file);
         try {
           const hash = await this.getFileHash(fullPath);
-          this.fileHashes.set(fullPath, hash);
+          if (hash) {
+            this.fileHashes.set(fullPath, hash);
+          }
         } catch {
           // File might not exist
         }
