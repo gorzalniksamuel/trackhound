@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * TraceHound CLI
+ * Trailhound CLI
  * Sniff out what your AI agent is doing
  */
 
@@ -8,7 +8,7 @@ import { Command } from "commander";
 import chalk from "chalk";
 import * as fs from "fs/promises";
 import * as path from "path";
-import { TraceHound } from "./core/tracehound.js";
+import { Trailhound } from "./core/trailhound.js";
 import { RunStore } from "./core/run-store.js";
 import { ReportGenerator } from "./reports/report-generator.js";
 import { RunManifest } from "./types/index.js";
@@ -16,7 +16,7 @@ import { RunManifest } from "./types/index.js";
 const program = new Command();
 
 program
-  .name("tracehound")
+  .name("trailhound")
   .description("Sniff out what your AI agent is doing")
   .version("0.1.0");
 
@@ -35,21 +35,21 @@ program
       process.exit(1);
     }
 
-    console.log(chalk.blue("🐕 TraceHound"), "- Sniffing out agent behavior...\n");
+    console.log(chalk.blue("🐕 Trailhound"), "- Sniffing out agent behavior...\n");
     
-    const tracehound = new TraceHound({
+    const trailhound = new Trailhound({
       name: options.name,
       agent: options.agent,
       mode: options.mode,
     });
 
     try {
-      const result = await tracehound.run(agentCommand);
+      const result = await trailhound.run(agentCommand);
       
       console.log("\n" + chalk.green("✅ Recording complete!"));
       console.log(chalk.gray(`Run ID: ${result.runId}`));
       console.log(chalk.gray(`Duration: ${formatDuration(result.durationMs)}`));
-      console.log(chalk.gray(`View report: tracehound report ${result.runId}`));
+      console.log(chalk.gray(`View report: trailhound report ${result.runId}`));
       
       if (result.warnings.length > 0) {
         console.log("\n" + chalk.yellow("⚠️  Warnings:"));
@@ -73,13 +73,13 @@ program
     const targetRunId = runId || await getLatestRunId();
     
     if (!targetRunId) {
-      console.error(chalk.red("No runs found. Run 'tracehound run' first."));
+      console.error(chalk.red("No runs found. Run 'trailhound run' first."));
       process.exit(1);
     }
 
     const manifestPath = path.join(
       process.cwd(), 
-      ".tracehound", 
+      ".trailhound", 
       "runs", 
       targetRunId, 
       "manifest.json"
@@ -158,7 +158,7 @@ program
 
 async function getLatestRunId(): Promise<string | null> {
   try {
-    const runsPath = path.join(process.cwd(), ".tracehound", "runs");
+    const runsPath = path.join(process.cwd(), ".trailhound", "runs");
     const entries = await fs.readdir(runsPath);
     const runs = entries
       .filter(e => !e.startsWith("."))
@@ -172,7 +172,7 @@ async function getLatestRunId(): Promise<string | null> {
 
 async function listRuns(): Promise<Array<{ id: string; name?: string; timestamp: string; agent?: string }>> {
   try {
-    const runsPath = path.join(process.cwd(), ".tracehound", "runs");
+    const runsPath = path.join(process.cwd(), ".trailhound", "runs");
     const entries = await fs.readdir(runsPath);
     const runs: Array<{ id: string; name?: string; timestamp: string; agent?: string }> = [];
     

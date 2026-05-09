@@ -42,7 +42,7 @@ export class PolicyEngine {
 
   async load(): Promise<void> {
     try {
-      const policyPath = path.join(process.cwd(), ".tracehound", "policy.yml");
+      const policyPath = path.join(process.cwd(), ".trailhound", "policy.yml");
       const content = await fs.readFile(policyPath, "utf-8");
       this.policy = yaml.parse(content) as Policy;
     } catch {

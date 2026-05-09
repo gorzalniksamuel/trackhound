@@ -1,10 +1,10 @@
 # Policy Configuration
 
-TraceHound policies let you define rules for what agents can do.
+Trailhound policies let you define rules for what agents can do.
 
 ## Policy File
 
-Create `.tracehound/policy.yml` in your repository root:
+Create `.trailhound/policy.yml` in your repository root:
 
 ```yaml
 mode: warn
@@ -264,11 +264,11 @@ Command line flags override policy file:
 
 ```bash
 # Override mode
-tracehound run --mode enforce -- codex
+trailhound run --mode enforce -- codex
 
 # Network control
-tracehound run --net off -- codex
-tracehound run --net proxy -- codex
+trailhound run --net off -- codex
+trailhound run --net proxy -- codex
 ```
 
 ## Examples
@@ -354,10 +354,10 @@ secrets:
 
 ## Policy Validation
 
-TraceHound validates policies on startup:
+Trailhound validates policies on startup:
 
 ```bash
-tracehound validate-policy
+trailhound validate-policy
 ```
 
 Reports any syntax errors or conflicts.

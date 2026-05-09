@@ -1,13 +1,13 @@
 /**
- * TraceHound Types
- * Core type definitions for the TraceHound system
+ * Trailhound Types
+ * Core type definitions for the Trailhound system
  */
 
 // ============================================================================
 // Run Configuration
 // ============================================================================
 
-export interface TraceHoundOptions {
+export interface TrailhoundOptions {
   name?: string;
   agent?: string;
   mode?: "record" | "warn" | "enforce";

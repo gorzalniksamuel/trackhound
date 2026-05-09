@@ -29,8 +29,8 @@ coverage/
 .DS_Store
 Thumbs.db
 
-# TraceHound runtime
-.tracehound/
+# Trailhound runtime
+.trailhound/
 
 # Logs
 logs/

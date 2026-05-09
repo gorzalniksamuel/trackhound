@@ -1,4 +1,4 @@
-# Contributing to TraceHound
+# Contributing to Trailhound
 
 Thank you for your interest in contributing to AgentBox! This document provides guidelines for contributing to the project.
 
@@ -6,8 +6,8 @@ Thank you for your interest in contributing to AgentBox! This document provides 
 
 ```bash
 # Clone the repository
-git clone https://github.com/gorzalniksamuel/tracehound.git
-cd tracehound
+git clone https://github.com/gorzalniksamuel/trailhound.git
+cd trailhound
 
 # Install dependencies
 npm install
@@ -25,11 +25,11 @@ npm link
 ## Project Structure
 
 ```
-tracehound/
+trailhound/
 ├── src/
 │   ├── cli.ts              # CLI entry point
 │   ├── core/               # Core tracking logic
-│   │   ├── tracehound.ts     # Main orchestrator
+│   │   ├── trailhound.ts     # Main orchestrator
 │   │   ├── trace-writer.ts # Event persistence
 │   │   └── run-store.ts    # Run metadata storage
 │   ├── recorders/          # Monitoring components

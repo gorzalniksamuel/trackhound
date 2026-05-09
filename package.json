@@ -1,10 +1,10 @@
 {
-  "name": "tracehound",
+  "name": "trailhound",
   "version": "0.2.1",
   "description": "Sniff out what your AI agent is doing - know exactly what your AI agent did",
   "main": "dist/index.js",
   "bin": {
-    "tracehound": "dist/cli.js",
+    "trailhound": "dist/cli.js",
     "th": "dist/cli.js"
   },
   "scripts": {
@@ -36,12 +36,12 @@
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gorzalniksamuel/tracehound.git"
+    "url": "git+https://github.com/gorzalniksamuel/trailhound.git"
   },
   "bugs": {
-    "url": "https://github.com/gorzalniksamuel/tracehound/issues"
+    "url": "https://github.com/gorzalniksamuel/trailhound/issues"
   },
-  "homepage": "https://github.com/gorzalniksamuel/tracehound#readme",
+  "homepage": "https://github.com/gorzalniksamuel/trailhound#readme",
   "engines": {
     "node": ">=18.0.0"
   },
