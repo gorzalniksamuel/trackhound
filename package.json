@@ -1,6 +1,6 @@
 {
   "name": "trackhound",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Sniff out what your AI agent is doing - know exactly what your AI agent did",
   "main": "dist/index.js",
   "bin": {
