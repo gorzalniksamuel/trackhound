@@ -107,7 +107,7 @@ export class OpenClawAdapter {
     }
 
     // Detect web operations
-    const webMatch = line.match(/(web_search|browser_use|web_fetch|fetch_page)\s*[:\-]?\s*(.+)?/i);
+    const webMatch = line.match(/(web_search|browser_use|web_fetch|fetch_page)\s*[:-]?\s*(.+)?/i);
     if (webMatch) {
       return {
         ts: new Date().toISOString(),

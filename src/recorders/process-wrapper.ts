@@ -57,8 +57,8 @@ export class ProcessWrapper extends EventEmitter {
       };
 
       // Handle command with spaces
-      let finalCommand = command;
-      let finalArgs = args;
+      const finalCommand = command;
+      const finalArgs = args;
 
       if (args.length === 0 && command.includes(" ")) {
         spawnOptions.shell = true;

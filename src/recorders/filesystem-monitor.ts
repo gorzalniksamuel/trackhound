@@ -44,7 +44,7 @@ export class FilesystemMonitor {
 
     this.watcher = chokidar.watch(watchPaths, {
       ignored: [
-        /(^|[\/\\])\../,  // dotfiles
+        /(^|[/\\])\../,  // dotfiles
         "**/node_modules/**",
         "**/.git/**",
         "**/dist/**",
