@@ -2,7 +2,7 @@
  * Run Store
  * Manages storage and retrieval of run metadata
  * 
- * Trailhound stores runs in .trailhound/runs/
+ * Trackhound stores runs in .trackhound/runs/
  */
 
 import * as fs from "fs/promises";
@@ -13,7 +13,7 @@ export class RunStore {
   private runsPath: string;
 
   constructor() {
-    this.runsPath = path.join(process.cwd(), ".trailhound", "runs");
+    this.runsPath = path.join(process.cwd(), ".trackhound", "runs");
   }
 
   async listRuns(): Promise<RunEntry[]> {

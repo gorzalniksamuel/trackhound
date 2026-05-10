@@ -1,15 +1,15 @@
-# Trailhound 🐕
+# Trackhound 🐕
 
 > **Sniff out what your AI agent is doing.**
 
 Know exactly what your AI agent did—before you review the diff.
 
-[![CI](https://github.com/gorzalniksamuel/trailhound/actions/workflows/ci.yml/badge.svg)](https://github.com/gorzalniksamuel/trailhound/actions)
+[![CI](https://github.com/gorzalniksamuel/trackhound/actions/workflows/ci.yml/badge.svg)](https://github.com/gorzalniksamuel/trackhound/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
-## Why Trailhound?
+## Why Trackhound?
 
 AI coding agents are evolving from autocomplete into autonomous operators. You tell them "fix the bug," and they:
 
@@ -19,7 +19,7 @@ AI coding agents are evolving from autocomplete into autonomous operators. You t
 - Access secrets and credentials
 - Run shell commands in your environment
 
-**Trailhound tracks everything:**
+**Trackhound tracks everything:**
 
 - 📁 **Files touched** - Reads, writes, deletes across your repo
 - 🖥️ **Commands run** - Shell executions with args and exit codes
@@ -35,16 +35,16 @@ AI coding agents are evolving from autocomplete into autonomous operators. You t
 
 ```bash
 # Install
-npm install -g trailhound
+npm install -g trackhound
 
 # Record a Codex session
-trailhound run -- codex
+trackhound run -- codex
 
 # Record Claude Code
-trailhound run -- claude-code
+trackhound run -- claude-code
 
 # View the report
-trailhound report
+trackhound report
 ```
 
 ---
@@ -56,7 +56,7 @@ Run: fix-auth-bug
 Agent: codex
 Duration: 14m 22s
 Risk Score: Medium ⚠️
-Tracked By: Trailhound
+Tracked By: Trackhound
 
 Summary:
 - Modified 6 files
@@ -77,7 +77,7 @@ Notable Events:
 
 ## Sniffing Out Agent Behavior
 
-Like a bloodhound tracking a scent, **Trailhound follows the trail** your AI agent leaves behind:
+Like a bloodhound tracking a scent, **Trackhound follows the trail** your AI agent leaves behind:
 
 - Which files were sniffed before the fix?
 - What commands were run in the background?
@@ -104,7 +104,7 @@ Like a bloodhound tracking a scent, **Trailhound follows the trail** your AI age
 ## What's Recorded?
 
 ```
-.trailhound/
+.trackhound/
 └── runs/
     └── 2026-05-08T10-22-31Z_fix-auth-bug/
         ├── manifest.json       # Run metadata
@@ -136,7 +136,7 @@ Like a bloodhound tracking a scent, **Trailhound follows the trail** your AI age
 
 ## Policy Configuration
 
-Create `.trailhound/policy.yml` to set boundaries:
+Create `.trackhound/policy.yml` to set boundaries:
 
 ```yaml
 mode: warn  # off | record | warn | enforce
@@ -176,11 +176,11 @@ commands:
 
 ```bash
 # From npm (coming soon)
-npm install -g trailhound
+npm install -g trackhound
 
 # From source
-git clone https://github.com/gorzalniksamuel/trailhound.git
-cd trailhound
+git clone https://github.com/gorzalniksamuel/trackhound.git
+cd trackhound
 npm install
 npm run build
 npm link
@@ -191,12 +191,12 @@ npm link
 ## CLI Usage
 
 ```
-trailhound run -- <agent-command>    # Record a session
-trailhound report [run-id]             # Generate report
-trailhound list                        # List recorded runs
-trailhound replay <run-id>             # Replay session
-trailhound compare <run-a> <run-b>     # Compare runs
-trailhound tui                         # Interactive TUI
+trackhound run -- <agent-command>    # Record a session
+trackhound report [run-id]             # Generate report
+trackhound list                        # List recorded runs
+trackhound replay <run-id>             # Replay session
+trackhound compare <run-a> <run-b>     # Compare runs
+trackhound tui                         # Interactive TUI
 ```
 
 ---
@@ -205,42 +205,42 @@ trailhound tui                         # Interactive TUI
 
 ```bash
 # Record a session
-trailhound run -- <command>
+trackhound run -- <command>
 
 # Examples:
-trailhound run -- codex
-trailhound run -- claude-code
-trailhound run -- openclaw coding-agent
-trailhound run -- npx opencode
+trackhound run -- codex
+trackhound run -- claude-code
+trackhound run -- openclaw coding-agent
+trackhound run -- npx opencode
 
 # View reports
-trailhound report              # Last run
-trailhound report --last       # Same
-trailhound report <run-id>     # Specific run
-trailhound report --html       # Open HTML report
+trackhound report              # Last run
+trackhound report --last       # Same
+trackhound report <run-id>     # Specific run
+trackhound report --html       # Open HTML report
 
 # List runs
-trailhound list
-trailhound list --json
+trackhound list
+trackhound list --json
 
 # Replay a session
-trailhound replay <run-id>
+trackhound replay <run-id>
 
 # Compare two runs
-trailhound compare <run-id-1> <run-id-2>
+trackhound compare <run-id-1> <run-id-2>
 
 # TUI viewer
-trailhound tui
+trackhound tui
 ```
 
 ---
 
 ## Architecture
 
-Trailhound uses a lightweight supervisor process that wraps your agent:
+Trackhound uses a lightweight supervisor process that wraps your agent:
 
 ```
-trailhound run -- codex
+trackhound run -- codex
       |
       v
 +------------------+
@@ -301,17 +301,17 @@ MIT © [Samuel Gorzalnik](https://github.com/gorzalniksamuel)
 
 ---
 
-## Why "Trailhound"?
+## Why "Trackhound"?
 
 A **bloodhound** is a dog breed famous for its ability to follow a scent trail over great distances, even days old. 
 
-**Trailhound** applies the same principle to AI agents:
+**Trackhound** applies the same principle to AI agents:
 - Follows the trail of what happened
 - Sniffs out secrets and anomalies
 - Tracks network connections
 - Never loses the scent
 
-> *"Like a bloodhound on the trail—Trailhound always knows where your agent has been."*
+> *"Like a bloodhound on the trail—Trackhound always knows where your agent has been."*
 
 ---
 

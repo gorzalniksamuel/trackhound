@@ -28,7 +28,7 @@ export class ProcessMonitor {
     const event: ProcessEvent = {
       ts: new Date().toISOString(),
       type: "process.exec",
-      runId: "", // Set by Trailhound
+      runId: "", // Set by Trackhound
       pid,
       ppid,
       cwd,

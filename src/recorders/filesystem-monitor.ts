@@ -49,7 +49,7 @@ export class FilesystemMonitor {
         "**/.git/**",
         "**/dist/**",
         "**/build/**",
-        "**/.trailhound/**",
+        "**/.trackhound/**",
         "**/*.log",
         "**/*.tmp",
         "**/*.temp",
@@ -149,7 +149,7 @@ export class FilesystemMonitor {
     const ignorePatterns = [
       /node_modules/,
       /\.git/,
-      /\.trailhound/,
+      /\.trackhound/,
       /dist/,
       /build/,
       /Library/,

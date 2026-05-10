@@ -1,0 +1,32 @@
+{
+  "schema": "tracehound.manifest.v1",
+  "run": {
+    "id": "2026-05-08T20-14-00_CIRvZ3",
+    "timestamp": "2026-05-08T20:14:00.656Z",
+    "durationMs": 54,
+    "exitCode": 0
+  },
+  "agent": {
+    "name": "unknown",
+    "command": [
+      "echo",
+      "hello"
+    ]
+  },
+  "repo": {
+    "root": "/Users/samuel/.openclaw/workspace/tracehound",
+    "git": {
+      "isRepo": true,
+      "branch": "main",
+      "commit": "b1583967",
+      "dirty": true
+    }
+  },
+  "summary": {
+    "filesModified": 0,
+    "commandsRun": 1,
+    "networkConnections": 0,
+    "secretsAccessed": 0
+  },
+  "warnings": []
+}

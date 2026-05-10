@@ -1,8 +1,8 @@
-# Trailhound Architecture
+# Trackhound Architecture
 
 ## Overview
 
-Trailhound is a tracking tool for AI coding agents. It wraps agent processes and records everything they do.
+Trackhound is a tracking tool for AI coding agents. It wraps agent processes and records everything they do.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

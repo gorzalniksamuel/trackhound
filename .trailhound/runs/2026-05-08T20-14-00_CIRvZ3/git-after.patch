@@ -1,0 +1,13 @@
+diff --git a/src/recorders/filesystem-monitor.ts b/src/recorders/filesystem-monitor.ts
+index 040276b..c10ce3f 100644
+--- a/src/recorders/filesystem-monitor.ts
++++ b/src/recorders/filesystem-monitor.ts
+@@ -3,7 +3,7 @@
+  * Watches file system events using chokidar
+  */
+ 
+-import chokidar from "chokidar";
++import * as chokidar from "chokidar";
+ import * as fs from "fs/promises";
+ import * as path from "path";
+ import { FileEvent, AgentEvent } from "../types/index.js";

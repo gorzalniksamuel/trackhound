@@ -1,6 +1,6 @@
-# Trailhound Trace Format
+# Trackhound Trace Format
 
-Trailhound uses a JSON Lines (JSONL) format for event streams. This allows:
+Trackhound uses a JSON Lines (JSONL) format for event streams. This allows:
 
 - Streaming writes without buffering
 - Appending events as they occur

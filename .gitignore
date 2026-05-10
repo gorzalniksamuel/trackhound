@@ -30,7 +30,7 @@ coverage/
 Thumbs.db
 
 # Trailhound runtime
-.trailhound/
+.trackhound/
 
 # Logs
 logs/

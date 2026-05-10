@@ -1,5 +1,5 @@
 /**
- * Trailhound Core
+ * Trackhound Core
  * Main orchestrator for tracking agent sessions
  */
 
@@ -14,16 +14,16 @@ import { PassiveNetworkMonitor } from "../recorders/network-proxy.js";
 import { PolicyEngine } from "../policies/policy-engine.js";
 import { TraceWriter } from "./trace-writer.js";
 import { OpenClawAdapter } from "../adapters/openclaw.js";
-import { RunManifest, TrailhoundOptions, RunResult, AgentEvent, FileEvent } from "../types/index.js";
+import { RunManifest, TrackhoundOptions, RunResult, AgentEvent, FileEvent } from "../types/index.js";
 
-export interface TrailhoundConfig extends TrailhoundOptions {
+export interface TrackhoundConfig extends TrackhoundOptions {
   workspacePath: string;
   runId: string;
   startTime: Date;
 }
 
-export class Trailhound extends EventEmitter {
-  private config: TrailhoundConfig;
+export class Trackhound extends EventEmitter {
+  private config: TrackhoundConfig;
   private processWrapper: ProcessWrapper;
   private filesystemMonitor: FilesystemMonitor;
   private networkMonitor: PassiveNetworkMonitor;
@@ -38,11 +38,11 @@ export class Trailhound extends EventEmitter {
   private secretsAccessed = 0;
   private networkConnections = 0;
 
-  constructor(options: TrailhoundOptions) {
+  constructor(options: TrackhoundOptions) {
     super();
     
     const runId = this.generateRunId();
-    const workspacePath = path.join(process.cwd(), ".trailhound", "runs", runId);
+    const workspacePath = path.join(process.cwd(), ".trackhound", "runs", runId);
     
     this.config = {
       ...options,
@@ -197,7 +197,7 @@ export class Trailhound extends EventEmitter {
 
     // Generate manifest
     const manifest: RunManifest = {
-      schema: "trailhound.manifest.v1",
+      schema: "trackhound.manifest.v1",
       run: {
         id: this.config.runId,
         name: this.config.name,
@@ -240,7 +240,7 @@ export class Trailhound extends EventEmitter {
     
     // Print summary
     console.log("\n" + "=".repeat(50));
-    console.log("📊 Trailhound Summary");
+    console.log("📊 Trackhound Summary");
     console.log("=".repeat(50));
     console.log(`Files Modified:     ${summary.filesModified}`);
     console.log(`Commands Run:       ${summary.commandsRun}`);

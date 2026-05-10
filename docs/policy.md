@@ -1,6 +1,6 @@
 # Policy Configuration
 
-Trailhound policies let you define rules for what agents can do.
+Trackhound policies let you define rules for what agents can do.
 
 ## Policy File
 
@@ -354,7 +354,7 @@ secrets:
 
 ## Policy Validation
 
-Trailhound validates policies on startup:
+Trackhound validates policies on startup:
 
 ```bash
 trailhound validate-policy

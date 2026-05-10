@@ -2,7 +2,7 @@
  * Trace Writer
  * Manages writing events to the trace store
  * 
- * Trailhound uses .trailhound/ directory for all traces
+ * Trackhound uses .trackhound/ directory for all traces
  */
 
 import * as fs from "fs/promises";
