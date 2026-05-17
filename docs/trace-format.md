@@ -10,7 +10,7 @@ Trackhound uses a JSON Lines (JSONL) format for event streams. This allows:
 ## File Structure
 
 ```
-.trailhound/runs/<run-id>/
+.trackhound/runs/<run-id>/
 ├── manifest.json     # Run metadata
 ├── events.jsonl      # Stream of events
 ├── terminal.cast     # Asciicast v2 terminal recording
@@ -322,7 +322,7 @@ The `manifest.json` file contains run metadata:
 
 ```json
 {
-  "schema": "trailhound.manifest.v1",
+  "schema": "trackhound.manifest.v1",
   "run": {
     "id": "2026-05-08T10-22-31_fix-auth-bug",
     "name": "fix-auth-bug",
@@ -386,7 +386,7 @@ jq -s 'group_by(.type) | map({type: .[0].type, count: length})' events.jsonl
 import jsonl
 from pathlib import Path
 
-events_file = Path(".trailhound/runs/<run-id>/events.jsonl")
+events_file = Path(".trackhound/runs/<run-id>/events.jsonl")
 
 for line in events_file.open():
     event = json.loads(line)
@@ -438,10 +438,10 @@ Traces can be compressed to save space:
 
 ```bash
 # Compress a run
-trailhound compress <run-id>
+trackhound compress <run-id>
 
 # Decompress when needed
-trailhound decompress <run-id>
+trackhound decompress <run-id>
 ```
 
 Compressed files:

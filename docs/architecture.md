@@ -11,7 +11,7 @@ Trackhound is a tracking tool for AI coding agents. It wraps agent processes and
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    trailhound run -- codex                     │
+│                    trackhound run -- codex                     │
 └──────────────────────┬──────────────────────────────────────┘
                        │
                        ▼
@@ -170,7 +170,7 @@ Produces human-readable reports.
 ### Directory Structure
 
 ```
-.trailhound/runs/
+.trackhound/runs/
 └── 2026-05-08T10-22-31_fix-auth-bug/
     ├── manifest.json           # Run metadata
     ├── events.jsonl           # Event stream
@@ -202,7 +202,7 @@ Produces human-readable reports.
 
 ```json
 {
-  "schema": "trailhound.manifest.v1",
+  "schema": "trackhound.manifest.v1",
   "run": {
     "id": "2026-05-08T10-22-31_fix-auth-bug",
     "name": "fix-auth-bug",

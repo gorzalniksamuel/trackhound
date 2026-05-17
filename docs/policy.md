@@ -4,7 +4,7 @@ Trackhound policies let you define rules for what agents can do.
 
 ## Policy File
 
-Create `.trailhound/policy.yml` in your repository root:
+Create `.trackhound/policy.yml` in your repository root:
 
 ```yaml
 mode: warn
@@ -264,11 +264,11 @@ Command line flags override policy file:
 
 ```bash
 # Override mode
-trailhound run --mode enforce -- codex
+trackhound run --mode enforce -- codex
 
 # Network control
-trailhound run --net off -- codex
-trailhound run --net proxy -- codex
+trackhound run --net off -- codex
+trackhound run --net proxy -- codex
 ```
 
 ## Examples
@@ -357,7 +357,7 @@ secrets:
 Trackhound validates policies on startup:
 
 ```bash
-trailhound validate-policy
+trackhound validate-policy
 ```
 
 Reports any syntax errors or conflicts.
